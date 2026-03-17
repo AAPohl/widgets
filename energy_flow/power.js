@@ -6,12 +6,12 @@ $.widget("sv.power_powerflow", $.sv.widget, {
     },
 
     _update: function (response) {
-        var pv = parseFloat(response[0]);        
-        var grid = parseFloat(response[1]);
-        var battery = parseFloat(response[2]);
-        var house = parseFloat(response[3]); 
-	    var vehicle = parseFloat(response[4]);
-        var heating = parseFloat(response[5]);
+        var pv = toNumberOrZero(response[0]);        
+        var grid = toNumberOrZero(response[1]);
+        var battery = toNumberOrZero(response[2]);
+        var house = toNumberOrZero(response[3]); 
+        var vehicle = toNumberOrZero(response[4]);
+        var heating = toNumberOrZero(response[5]);
       
         var remainingPv = pv;
         if(remainingPv > 0 && grid < 0) {
@@ -95,6 +95,20 @@ $.widget("sv.power_powerflow", $.sv.widget, {
             $('#batteryToHome').toggle(false); 
         }
         $('#batteryToGrid').toggle(remainingBattery > 0 && grid < 0); 
+
+        $('#batteryIcon, #batteryPower, #batterySoC').toggle(hasItem(2));
+        $('#houseIcon, #housePower').toggle(hasItem(3));
+        $('#vehicleIcon, #vehiclePower, #vehicleSoC').toggle(hasItem(4));
+        $('#heatingIcon, #heatingPower, #heatingSoC').toggle(hasItem(5));
+
+        function toNumberOrZero(value) {
+            var n = parseFloat(value);
+            return isNaN(n) ? 0 : n;
+        }
+
+        function hasItem(index) {
+            return response[index] !== undefined && response[index] !== '';
+        }
     }
 });
 
@@ -136,7 +150,7 @@ $.widget("sv.power_powerdistribution", $.sv.widget, {
         arrangeElement("#outputGrid", outputHouseLength + outputVehicleLength + outputHeatingLength + outputBatteryLength, outputGridLength );
         
         function splitInputOutut(source) {
-            var value = parseFloat(source);     
+            var value = toNumberOrZero(source);     
             var input = Math.max(0, value);
             var output = value > 0 ? 0 : Math.abs(value);
             return [input, output];
@@ -149,6 +163,10 @@ $.widget("sv.power_powerdistribution", $.sv.widget, {
             $(iconClass).width( width * 500);
             $(iconClass).toggle(width > 0.1);
 	    };
+        function toNumberOrZero(value) {
+            var n = parseFloat(value);
+            return isNaN(n) ? 0 : n;
+        }
 
 	
     }
