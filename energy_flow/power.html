@@ -126,37 +126,37 @@
         <foreignobject class="node" x="-10" y="130" width="70" height="20"> 
             {{ basic.print('', item_gridPower, '%,0f W', 'Math.abs(VAR)', '', 'icon0') }}
         </foreignobject>
-        <foreignobject class="node" x="200" y="90" width="50" height="50"> 
+        <foreignobject id="batteryIcon" class="node" x="200" y="90" width="50" height="50"> 
             {{ icon.battery('', '', item_batterySoC, '0', '100', 'icon0') }}
         </foreignobject>
-        <foreignobject class="node" x="190" y="130" width="70" height="20"> 
+        <foreignobject id="batteryPower" class="node" x="190" y="130" width="70" height="20"> 
             {{ basic.print('', item_batteryPower, '%,0f W', 'Math.abs(VAR)', '', 'icon0') }}
         </foreignobject>
-        <foreignobject class="node" x="190" y="150" width="70" height="20"> 
+        <foreignobject id="batterySoC" class="node" x="190" y="150" width="70" height="20"> 
            {{ basic.print('', item_batterySoC, '%,0f %', 'Math.abs(VAR)', '', 'icon0') }}
          </foreignobject>
-        <foreignobject class="node" x="47.5" y="200" width="50" height="50"> 
+        <foreignobject id="houseIcon" class="node" x="47.5" y="200" width="50" height="50"> 
             {{ lib.svgimg('', 'scene_home', 'icon0') }}
         </foreignobject>
-        <foreignobject class="node" x="37.5" y="240" width="70" height="20"> 
+        <foreignobject id="housePower" class="node" x="37.5" y="240" width="70" height="20"> 
             {{ basic.print('', item_housePower, '%,0f W', 'Math.abs(VAR)', '', 'icon0') }}
          </foreignobject>
-        <foreignobject class="node" x="100" y="200" width="50" height="50">
+        <foreignobject id="heatingIcon" class="node" x="100" y="200" width="50" height="50">
             {{ lib.svgimg('', 'sani_air_source_heat_pump', 'icon0') }}
         </foreignobject>
-        <foreignobject class="node" x="90" y="240" width="70" height="20"> 
+        <foreignobject id="heatingPower" class="node" x="90" y="240" width="70" height="20"> 
             {{ basic.print('', item_heatingPower, '%,0f W', 'Math.abs(VAR)', '', 'icon0') }}
          </foreignobject>
-        <foreignobject class="node" x="90" y="260" width="70" height="50">
+        <foreignobject id="heatingSoC" class="node" x="90" y="260" width="70" height="50">
             {{ basic.print('', item_heatingSoC, '%,0f °C', 'Math.abs(VAR)', '', 'icon0') }} 
         </foreignobject>
-        <foreignobject class="node" x="152.5" y="200" width="50" height="50">
+        <foreignobject id="vehicleIcon" class="node" x="152.5" y="200" width="50" height="50">
             {{ lib.svgimg('', 'veh_car_01_charging', 'icon0') }}
         </foreignobject>
-        <foreignobject class="node" x="142.5" y="240" width="70" height="20"> 
+        <foreignobject id="vehiclePower" class="node" x="142.5" y="240" width="70" height="20"> 
             {{ basic.print('', item_vehiclePower, '%,0f W', 'Math.abs(VAR)', '', 'icon0') }}
          </foreignobject>
-        <foreignobject class="node" x="142.5" y="260" width="70" height="50">
+        <foreignobject id="vehicleSoC" class="node" x="142.5" y="260" width="70" height="50">
             {{ basic.print('', item_vehicleSoC, '%,0f %', 'Math.abs(VAR)', '', 'icon0') }} 
         </foreignobject>
         <g id="pvToGrid">  
