@@ -10,3 +10,4 @@ Copy power.html and power.js to &lt;smartvisu-root-directory&gt;/dropins/widgets
 
 <img width="330" height="143" alt="grafik" src="https://github.com/user-attachments/assets/0b85e7fa-2857-4cad-8dd4-332373f5c0b7" />
 
+Note that id, item_pvPower and item_gripPower are mandatory. The remaining items can be skipped by '' individually.
