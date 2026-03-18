@@ -1,11 +1,7 @@
 $.widget("sv.power_powerflow", $.sv.widget, {
     initSelector: 'div[data-widget="power.powerflow"]',
 
-    _create: function () {
-        this._super();
-    },
-
-    _update: function (response) {
+	_update: function (response) {
         var pv = toNumberOrZero(response[0]);        
         var grid = toNumberOrZero(response[1]);
         var battery = toNumberOrZero(response[2]);
@@ -114,10 +110,6 @@ $.widget("sv.power_powerflow", $.sv.widget, {
 
 $.widget("sv.power_powerdistribution", $.sv.widget, {
     initSelector: 'div[data-widget="power.powerdistribution"]',
-
-    _create: function () {
-        this._super();
-    },
 
     _update: function (response) {
         var pv = splitInputOutut(response[0]); 
